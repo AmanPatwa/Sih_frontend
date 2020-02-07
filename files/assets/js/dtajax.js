@@ -1,32 +1,29 @@
 
 
 var verificationDummy = [{
-    city: "Mumbai",
-    gender: "1",
-    name: "test",
-    number: "8828183820",
-    role: "DOCTOR",
-    status: "REGISTERED",
+    name:"Aman Patwa",
+    college:"D.J Sanghvi",
+    year:"2000",
+    subject:"Computer",
+    place:"Mumbai"
 },
 {
-    city: "Mumbai",
-    gender: "1",
-    name: "test",
-    number: "8828183820",
-    role: "DOCTOR",
-    status: "REGISTERED",
+    name:"Aman Patwa",
+    college:"D.J Sanghvi",
+    year:"2000",
+    subject:"Computer",
+    place:"Mumbai"
 },
 {
-    city: "Mumbai",
-    gender: "1",
-    name: "test",
-    number: "8828183820",
-    role: "DOCTOR",
-    status: "REGISTERED",
+    name:"Aman Patwa",
+    college:"D.J Sanghvi",
+    year:"2000",
+    subject:"Computer",
+    place:"Mumbai"
 }
 ];
 
-var colHeaders = ['role', 'name', 'gender', 'city', 'status'];
+var colHeaders = ['name', 'college', 'year', 'subject', 'place'];
 
 var tableColumns = [{
     data: colHeaders[0],
@@ -50,7 +47,7 @@ var tableColumns = [{
 },
 {
     data: colHeaders[4],
-    title: 'Registered On'.toUpperCase(),
+    title: colHeaders[4].toUpperCase(),
     defaultContent: 'N/A'
 },
 {
@@ -62,11 +59,13 @@ var tableColumns = [{
 function populateTable() {
     // console.log('populating ', data);
 
-    table = $('#basic-btn').DataTable({
+    table = $('#basic-btn9').DataTable({
         // sDom: 'lrtip',
-        "scrollX": true,
-        paging: true,
-        // "autoWidth": false,
+        // "scrollX": true,
+        // paging: true,
+        "autoWidth": false,
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
         // draw: 1,
         // processing: true,
         // serverSide: true,
@@ -78,19 +77,16 @@ function populateTable() {
             "data": null,
             "defaultContent": `<button class="btn"><i class="fa fa-check"></i></button>
             <button class="btn"><i class="fa fa-phone"></i></button>`
-        }, {
-            "targets": 4,
-            className: 'dt-right'
         }],
-        language: {
-            searchPlaceholder: "  Search....",
-            search: "",
-        }
+        // language: {
+        //     searchPlaceholder: "  Search....",
+        //     search: "",
+        // }
     });
 
 
 
-    $('#basic-btn tbody').on('click', 'button', function () {
+    $('#basic-btn9 tbody').on('click', 'button', function () {
 
         console.log('clicked', $(this).find('i').hasClass('fa-check'));
         var data = table.row($(this).parents('tr')).data();
